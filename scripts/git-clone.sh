@@ -1,23 +1,38 @@
 #!/usr/bin/env bash
+#premier parametre representant le repertoire dans lequel sera cloner tous les projets
 repository_dir=$1
-#username=$2
-#password=$3
+
+#deuxieme parametre representant la branche de laquelle on doit cloner les les projets
 branch=$2
 
-projets=("bootcamp.common" "bootcamp.database" "service.crud" "bootcamp.commonws" "bootcamp.rest.service.client" "categorie.service.fonctionnel" "projet.service.fonctionnel" "commentaire.service.fonctionnel" "media.service.fonctionnel" "projet.service.use.case" "categorie.service.use.case")
-projets_jars=("bootcamp.common" "bootcamp.database" "service.crud" "bootcamp.commonws" "bootcamp.rest.service.client")
-projets_wars=("categorie.service.fonctionnel" "projet.service.fonctionnel" "commentaire.service.fonctionnel" "media.service.fonctionnel" "projet.service.use.case" "categorie.service.use.case")
-wars_path="/bootcamp/wars/"
+#Un tableau contenant le nom de tous les projets 
+projets=("bootcamp.common" "bootcamp.database" "service.crud" "bootcamp.commonws" "bootcamp.rest.service.client" "categorie.service.fonctionnel" "projet.service.fonctionnel" "commentaire.service.fonctionnel" "media.service.fonctionnel" "liketable.service.fonctionnel" "note.service.fonctionnel" "projet.service.use.case" "categorie.service.use.case"  "bootcamp.scripts")
 
+#Un tableau contenant le nom de tous les projets qui generent un jar
+#projets_jars=("bootcamp.common" "bootcamp.database" "service.crud" "bootcamp.commonws" "bootcamp.rest.service.client")
+
+#Un tableau contenant le nom de tous les projets qui generent un war
+#projets_wars=("categorie.service.fonctionnel" "projet.service.fonctionnel" "commentaire.service.fonctionnel" "media.service.fonctionnel" "liketable.service.fonctionnel" "note.service.fonctionnel" "projet.service.use.case" "categorie.service.use.case")
+
+#Variable contenant le repertoire ou sera stocker les wars generer
+#wars_path="/bootcamp/wars/"
+
+#On verifie si le repertoire dans lequel sera cloner tous les projets existe
+#Et On supprime le repertoire si elle existe
 if [ -d "$repository_dir" ]
 then
     rm -R "$repository_dir"
 fi
 
+#Creation du repertoire dans lequel sera cloner tous les projets existe avec des droits 777 sur le reperstoire
 sudo mkdir -p "$repository_dir"
 sudo chmod -R 777 "$repository_dir"
 
-
+#Declaration de la methode clone_project qui permet de parcourir le tableau de projet defini en haut
+#Pour chaque ittération du tableau on accede au dossier ou l'on doit cloner les projets 
+#On affiche ensuite un message ------------------------------ clone  $projet  project----------------------------------------
+#Avec $projet l'ittération en cours du tableau
+#Enfin on lance la commande git clone 
 clone_project () {
     for projet in ${projets[@]}
         do
@@ -28,4 +43,5 @@ clone_project () {
     done
 }
 
+#Execution de la fonction clone_project
 clone_project
