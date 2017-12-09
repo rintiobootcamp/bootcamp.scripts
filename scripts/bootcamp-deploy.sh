@@ -45,6 +45,9 @@ done
 for projet_war in ${projets_wars[@]}
    do
       cd "$repository_dir/$projet_war" ]
+	  rm -rf target/ log*
       mvn clean package -P $profile
+	  nohup mvn spring-boot:run -P dev > log.out &
+	  tail -f log.out
       copy_war $projet_war
 done
