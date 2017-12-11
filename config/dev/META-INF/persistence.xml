@@ -14,15 +14,19 @@
     <class>com.bootcamp.entities.Projet</class>
     <class>com.bootcamp.entities.Question</class>
     <class>com.bootcamp.entities.Region</class>
-    <class>com.bootcamp.entities.Reponse</class>
     <class>com.bootcamp.entities.Secteur</class>
-    <class>com.bootcamp.entities.TypeReponse</class>
     <class>com.bootcamp.entities.User</class>
+    <class>com.bootcamp.entities.Impact</class>
+    <class>com.bootcamp.entities.Objectif</class>
+    <class>com.bootcamp.entities.Programme</class>
+    <class>com.bootcamp.entities.Preference</class>
+    <class>com.bootcamp.entities.Notification</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bootcamp?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value="root"/>
+      <property name="javax.persistence.schema-generation.database.action" value="none"/>
     </properties>
   </persistence-unit>
 </persistence>
