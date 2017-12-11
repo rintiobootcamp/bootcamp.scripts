@@ -6,16 +6,8 @@ repository_dir=$1
 branch=$2
 
 #Un tableau contenant le nom de tous les projets 
-projets=("bootcamp.common" "bootcamp.database" "service.crud" "bootcamp.commonws" "bootcamp.rest.service.client" "categorie.service.fonctionnel" "projet.service.fonctionnel" "commentaire.service.fonctionnel" "media.service.fonctionnel" "liketable.service.fonctionnel" "note.service.fonctionnel" "debat.service.fonctionnel"  "censure.service.fonctionnel" "projet.service.use.case" "categorie.service.use.case"  "bootcamp.scripts" "sondage.service.fonctionnel")
+projets=("bootcamp.common" "bootcamp.database" "service.crud" "bootcamp.commonws" "bootcamp.rest.service.client" "categorie.service.fonctionnel" "projet.service.fonctionnel" "commentaire.service.fonctionnel" "media.service.fonctionnel" "liketable.service.fonctionnel" "note.service.fonctionnel" "debat.service.fonctionnel"  "censure.service.fonctionnel" "sondage.service.fonctionnel" "notification.generator.services" "preference.service.fonctionnel" "programme.service.fonctionnel" "projet.service.use.case" "categorie.service.use.case")
 
-#Un tableau contenant le nom de tous les projets qui generent un jar
-#projets_jars=("bootcamp.common" "bootcamp.database" "service.crud" "bootcamp.commonws" "bootcamp.rest.service.client")
-
-#Un tableau contenant le nom de tous les projets qui generent un war
-#projets_wars=("categorie.service.fonctionnel" "projet.service.fonctionnel" "commentaire.service.fonctionnel" "media.service.fonctionnel" "liketable.service.fonctionnel" "note.service.fonctionnel" "projet.service.use.case" "categorie.service.use.case")
-
-#Variable contenant le repertoire ou sera stocker les wars generer
-#wars_path="/bootcamp/wars/"
 
 #On verifie si le repertoire dans lequel sera cloner tous les projets existe
 #Et On supprime le repertoire si elle existe
