@@ -5,9 +5,6 @@ repository_dir=$1
 #deuxieme parametre representant le profil avec lequel les commandes mvn clean install vont s'exécuté
 profile=$2
 
-#Un tableau contenant le nom de tous les projets qui generent un jar
-projets_jars=("bootcamp.common" "bootcamp.database" "service.crud" "bootcamp.commonws")
-
 #Un tableau contenant le nom de tous les projets qui generent un war
 projets_wars=("categorie.service.fonctionnel" "projet.service.fonctionnel" "commentaire.service.fonctionnel" "media.service.fonctionnel" "liketable.service.fonctionnel" "note.service.fonctionnel"  "debat.service.fonctionnel"  "censure.service.fonctionnel" "sondage.service.fonctionnel" "notification.generator.services" "notification.diffusion.services" "preference.service.fonctionnel" "programme.service.fonctionnel" )
 
@@ -19,18 +16,10 @@ then
 fi
 
 
-for projet_jar in ${projets_jars[@]}
-   do
-      cd "$repository_dir/$projet_jar"
-      mvn clean install deploy -P $profile -DskipTests
-done
-
 for projet_war in ${projets_wars[@]}
    do
       cd "$repository_dir/$projet_war"
       rm -rf target/ log*
-      mvn clean -P $profile
-      nohup mvn spring-boot:run -DskipTests -P $profile > log.out &
-      #tail -f log.out
-      delay(1000)
+      mvn clean
+      nohup mvn spring-boot:run -DskipTests > log.out &
 done
