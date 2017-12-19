@@ -21,12 +21,26 @@ fi
 
 for projet_jar in ${projets_jars[@]}
    do
-      cd "$repository_dir/$projet_jar"
-      mvn clean install
+	if [ -d "$repository_dir" ]
+	then
+	    cd "$repository_dir/$projet_jar"
+	    rm -rf src/main/resources/local/
+	    rm -rf src/main/resources/dev/
+       	    rm -rf src/test/resources/local/
+	    rm -rf src/test/resources/dev/
+	    mvn clean install deploy -P dev  -DskipTests
+	fi
 done
 
 for projet_war in ${projets_wars[@]}
    do
-      cd "$repository_dir/$projet_war"
-      mvn clean install
+	if [ -d "$repository_dir" ]
+	then
+	    cd "$repository_dir/$projet_war"
+	    rm -rf src/main/resources/local/
+	    rm -rf src/main/resources/dev/
+       	    rm -rf src/test/resources/local/
+	    rm -rf src/test/resources/dev/
+	    mvn clean install deploy -P dev  -DskipTests
+	fi
 done

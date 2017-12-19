@@ -2,9 +2,6 @@
 #premier parametre representant le repertoire dans lequel ont a cloner tous les projets
 repository_dir=$1
 
-#deuxieme parametre representant le profil avec lequel les commandes mvn clean install vont s'exécuté
-profile=$2
-
 #Un tableau contenant le nom de tous les projets qui generent un war
 projets_wars=("categorie.service.fonctionnel" "projet.service.fonctionnel" "commentaire.service.fonctionnel" "media.service.fonctionnel" "liketable.service.fonctionnel" "note.service.fonctionnel"  "debat.service.fonctionnel"  "censure.service.fonctionnel" "sondage.service.fonctionnel" "notification.generator.services" "notification.diffusion.services" "preference.service.fonctionnel" "programme.service.fonctionnel" )
 
@@ -18,8 +15,15 @@ fi
 
 for projet_war in ${projets_wars[@]}
    do
-      cd "$repository_dir/$projet_war"
-      rm -rf target/ log*
-      mvn clean
-      nohup mvn spring-boot:run -DskipTests > log.out &
+	if [ -d "$repository_dir" ]
+	then
+	      cd "$repository_dir/$projet_war"
+	      rm -rf src/main/resources/local/
+	      rm -rf src/main/resources/dev/
+       	      rm -rf src/test/resources/local/
+	      rm -rf src/test/resources/dev/
+	      rm -rf target/ log*
+	      mvn clean install -P dev -DskipTests
+	      nohup mvn spring-boot:run -P dev  -DskipTests > log.out &
+	fi
 done
