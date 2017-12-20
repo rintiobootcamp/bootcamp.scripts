@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- copy this file to $CATALINA_BASE/conf/[enginename]/[hostname]/ otherwise war will not be
-deployed unless placed at tomcat webapp dir. This file can contain application specific context changes as needed
-you will need to unpackged the war with name "infra-service" so that this context can pick its web application properly-->
-<Context path="/categorie/fonctionnel" docBase="/bootcamp/wars/categorie-service-fonctionnel"/>
