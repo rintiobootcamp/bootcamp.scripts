@@ -6,7 +6,7 @@ repository_dir=$1
 branch=$2
 
 #Un tableau contenant le nom de tous les projets 
-projets=("bootcamp.common" "bootcamp.database" "service.crud" "bootcamp.commonws" "bootcamp.rest.service.client" "categorie.service.fonctionnel" "projet.service.fonctionnel" "commentaire.service.fonctionnel" "media.service.fonctionnel" "liketable.service.fonctionnel" "note.service.fonctionnel" "debat.service.fonctionnel"  "censure.service.fonctionnel" "sondage.service.fonctionnel" "notification.generator.services" "preference.service.fonctionnel" "programme.service.fonctionnel" "projet.service.use.case" "categorie.service.use.case")
+projets=("bootcamp.common" "bootcamp.database" "service.crud" "bootcamp.commonws" "bootcamp.rest.service.client" "categorie.service.fonctionnel" "projet.service.fonctionnel" "commentaire.service.fonctionnel" "media.service.fonctionnel" "liketable.service.fonctionnel" "note.service.fonctionnel" "debat.service.fonctionnel"  "censure.service.fonctionnel" "sondage.service.fonctionnel" "notification.generator.services" "preference.service.fonctionnel" "programme.service.fonctionnel" "projet.service.use.case")
 
 
 #On verifie si le repertoire dans lequel sera cloner tous les projets existe
