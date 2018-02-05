@@ -23,6 +23,6 @@ for projet_jar in ${projets_jars[@]}
 	rm -rf src/main/resources/dev/
 	rm -rf src/test/resources/local/
 	rm -rf src/test/resources/dev/
-        mvn clean install deploy -P dev
+        mvn clean install deploy -P dev -DskipTests
      fi
 done
